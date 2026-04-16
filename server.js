@@ -69,12 +69,12 @@ app.use("/uploads", express.static("uploads"));
 // ================= ROUTES =================
 
 app.use("/api/auth", authRoutes);
-app.use("/api/books", bookRoutes);
-app.use("/api/authors", authorRoutes);
-app.use("/api/categories", categoryRoutes);
-app.use("/api/publishers", publisherRoutes);
-app.use("/api/payment", paymentRoutes);
-app.use("/api/admin", adminRoutes);
+app.use("/books", bookRoutes);
+app.use("/authors", authorRoutes);
+app.use("/categories", categoryRoutes);
+app.use("/publishers", publisherRoutes);
+app.use("/payment", paymentRoutes);
+app.use("/admin", adminRoutes);
 app.use("/api/cart", require("./src/routes/cartRoutes"));
 app.use("/api/wishlist", require("./src/routes/wishlistRoutes"));
 
