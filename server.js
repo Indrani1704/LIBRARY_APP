@@ -75,8 +75,8 @@ app.use("/categories", categoryRoutes);
 app.use("/publishers", publisherRoutes);
 app.use("/payment", paymentRoutes);
 app.use("/admin", adminRoutes);
-app.use("/api/cart", require("./src/routes/cartRoutes"));
-app.use("/api/wishlist", require("./src/routes/wishlistRoutes"));
+app.use("/cart", require("./src/routes/cartRoutes"));
+app.use("/wishlist", require("./src/routes/wishlistRoutes"));
 
 // =================  SOCKET LOGIC =================
 
