@@ -34,7 +34,11 @@ const server = http.createServer(app);
 //  SOCKET.IO INIT
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://libraryappfrontend-inky.vercel.app"
+    ],
+    methods: ["GET", "POST"],
     credentials: true,
   },
 });
@@ -45,12 +49,13 @@ connectDB();
 // ================= MIDDLEWARE =================
 
 //  CORS (ONLY ONCE)
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://libraryappfrontend-inky.vercel.app"
+  ],
+  credentials: true,
+}));
 
 // BODY PARSER
 app.use(express.json());
