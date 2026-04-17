@@ -77,7 +77,21 @@ app.use("/payment", paymentRoutes);
 app.use("/admin", adminRoutes);
 app.use("/cart", require("./src/routes/cartRoutes"));
 app.use("/wishlist", require("./src/routes/wishlistRoutes"));
+// ================= NEWS API =================
+app.get("/api/news", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://newsapi.org/v2/everything?q=literature OR books OR novels&language=en&sortBy=publishedAt&pageSize=12&apiKey=${process.env.NEWS_API_KEY}`
+    );
 
+    const data = await response.json();
+
+    res.json(data);
+  } catch (err) {
+    console.error("News Error:", err.message);
+    res.status(500).json({ error: "Failed to fetch news" });
+  }
+});
 // =================  SOCKET LOGIC =================
 
 // =================  SOCKET LOGIC =================
